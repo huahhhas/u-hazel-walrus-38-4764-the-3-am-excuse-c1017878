@@ -6,7 +6,7 @@
 
 Entry for the make.fun bounty **"The 3 AM Excuse"** — one line, under 200 characters: the most creative excuse a hardware wallet gives for refusing to sign a transaction at 3 AM.
 
-The program (`main.py`, pure Python stdlib, no network at run time) writes the line to `$MAKEFUN_OUTPUT_DIR/entry.txt` (default `/output/entry.txt`):
+The program (`main.py`, pure Python stdlib, no network at run time) prints the line to stdout and writes it to `$MAKEFUN_OUTPUT_DIR/entry.txt` (default `/output/entry.txt`):
 
 > It's 3 AM. My buttons are on strike, my screen is dark, and the last thing I signed at this hour bought a token named after a dog. Come back at sunrise.
 

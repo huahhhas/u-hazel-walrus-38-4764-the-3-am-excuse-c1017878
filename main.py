@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Entry for make.fun bounty u-hazel-walrus-38-4764-the-3-am-excuse-c1017878.
 
-Writes one line (under 200 characters) to
+Prints one line (under 200 characters) to stdout and writes it to
 $MAKEFUN_OUTPUT_DIR/entry.txt (default /output/entry.txt): the most
 creative excuse a hardware wallet gives for refusing to sign a
 transaction at 3 AM. Pure stdlib, no network at run time.
@@ -26,6 +26,7 @@ def validate(line: str) -> None:
 def main() -> None:
     line = get_line()
     validate(line)
+    print(line)
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output/entry.txt")
     # MAKEFUN_OUTPUT_DIR names a directory; fall back to /output/entry.txt.
     if out_dir.endswith("entry.txt"):

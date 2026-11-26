@@ -9,11 +9,13 @@ transaction at 3 AM. Pure stdlib, no network at run time.
 
 import os
 
-ENTRY = (
-    "It's 3 AM. My secure element is asleep, my screen is dark, and the "
-    "last thing I signed at this hour ended with my owner apologising to "
-    "a memecoin. Come back at sunrise."
-)
+def get_line() -> str:
+    """The wallet's excuse: one line, a personality, a reason, a joke."""
+    return (
+        "It's 3 AM. My buttons are on strike, my screen is dark, and the "
+        "last thing I signed at this hour bought a token named after a dog. "
+        "Come back at sunrise."
+    )
 
 
 def validate(line: str) -> None:
@@ -22,7 +24,8 @@ def validate(line: str) -> None:
 
 
 def main() -> None:
-    validate(ENTRY)
+    line = get_line()
+    validate(line)
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output/entry.txt")
     # MAKEFUN_OUTPUT_DIR names a directory; fall back to /output/entry.txt.
     if out_dir.endswith("entry.txt"):
@@ -31,7 +34,7 @@ def main() -> None:
         path = os.path.join(out_dir, "entry.txt")
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8", newline="\n") as f:
-        f.write(ENTRY + "\n")
+        f.write(line + "\n")
 
 
 if __name__ == "__main__":
